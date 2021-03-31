@@ -8,14 +8,14 @@
   </head>
   <body>
     <div class="container">
-      <div class="tab">
-        <div class="tab-title">первый</div>
-        <div class="tab-content">первый контент</div>
-        <div class="tab-title">второй</div>
-        <div class="tab-content">второй контент</div>
-        <div class="tab-title">третий</div>
-        <div class="tab-content">третий контент</div>
+      <div class="tabs">
+        <div class="tab-title active" onclick="openTab(event, '1')">первый</div>
+        <div class="tab-title" onclick="openTab(event, '2')">второй</div>
+        <div class="tab-title" onclick="openTab(event, '3')">третий</div>
       </div>
+      <div class="tab-content" id="1">первый контент</div>
+      <div class="tab-content" id="2">второй контент</div>
+      <div class="tab-content" id="3">третий контент</div>
     </div>
     <script src="js/main.min.js"></script>
   </body>
