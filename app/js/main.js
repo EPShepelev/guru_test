@@ -1,32 +1,3 @@
-// document.querySelectorAll(".tab-title").forEach((elem) => {
-//   elem.addEventListener("click", openTab);
-// });
-
-// function openTab(e, contentId) {
-//   const tabcontent = document.querySelectorAll(".tab-content");
-//   tabcontent.forEach((element) => {
-//     element.style.display = "none";
-//   });
-
-//   const tablinks = document.querySelectorAll(".tab-title");
-//   tablinks.forEach((element) => {
-//     element.classList.remove("active");
-//   });
-//   document.getElementById(contentId).style.display = "block";
-//   e.currentTarget.classList.add("active");
-// }
-
-// function createTableFromJson(tableData) {
-//   const tableContainer = document.querySelector(".table-container");
-//   for (key in tableData) {
-//     let row = `<tr>
-//                 <td>${tableData.number}</td>
-//                 <td>${tableData.cdate}</td>
-//               </tr>`;
-//     tableContainer.innerHTML += row;
-//   }
-// }
-
 const tableTabs = document.querySelector(".table-tabs");
 const tableContainer = document.querySelector(".table-container");
 
