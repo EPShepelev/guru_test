@@ -3,6 +3,7 @@
 *::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -15,8 +16,21 @@ body {
   height: 100%;
   margin: 0 auto;
   background-color: #fff;
+  & .table-tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px;
+    & .tab {
+      margin: 0 10px;
+      padding: 5px;
+      cursor: pointer;
+    }
+  }
 }
 
-tr {
-  width: 100%;
+.table {
+  display: none;
+}
+.section.active {
+  display: table;
 }
