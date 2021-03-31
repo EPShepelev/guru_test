@@ -1,1 +1,1 @@
-*,*::before,*::after{margin:0;padding:0}body{height:100%;background-color:#eee}.container{width:600px;height:500px;margin:0 auto;background-color:#fff}.tab-content{display:none}
+*,*::before,*::after{margin:0;padding:0}body{height:100%;background-color:#eee}.container{width:600px;height:100%;margin:0 auto;background-color:#fff}tr{width:100%}
