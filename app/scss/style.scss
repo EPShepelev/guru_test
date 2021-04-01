@@ -26,11 +26,20 @@ body {
       cursor: pointer;
     }
   }
+  & .table-content {
+    table {
+      width: 100%;
+    }
+  }
+}
+
+.tab.active {
+  background-color: red;
 }
 
 .table {
   display: none;
 }
-.section.active {
+.table.active {
   display: table;
 }

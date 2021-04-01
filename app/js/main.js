@@ -4,30 +4,29 @@ const tableContent = document.querySelector(".table-content");
 fetch("../data/numbers.json")
   .then((res) => res.json())
   .then((data) => {
-    data.numbers.forEach((elem) => {
+    data.numbers.forEach((elem, index) => {
       if (elem.is_visible) {
         const headerTab = document.createElement("div");
-        const tabel = document.createElement("tabel");
+        const table = document.createElement("table");
+        const monthName =
+          elem.alias.charAt(0).toUpperCase() + elem.alias.slice(1);
 
-        headerTab.innerHTML = `${elem.alias}`;
+        headerTab.innerHTML = `${monthName}`;
         headerTab.classList.add("tab");
+        headerTab.dataset.id = `${index}`;
 
         tableTabs.appendChild(headerTab);
+        tableContent.appendChild(table);
 
-        tableContent.appendChild(tabel);
-        tabel.classList.add("tabel");
-        // tabel.id = `${elem.alias}`;
-
-        // headerTab.onclick = function () {
-        //   document.querySelector(`#${elem.alias}`).classList.toggle("hide");
-        // };
+        table.classList.add("table");
+        table.dataset.id = `${index}`;
 
         for (key in elem.number_list) {
           let row = document.createElement("tr");
           let numCell = document.createElement("td");
           let dataCell = document.createElement("td");
 
-          tabel.appendChild(row);
+          table.appendChild(row);
           row.appendChild(numCell);
           row.appendChild(dataCell);
           numCell.innerHTML = `${elem.number_list[key].number}`;
@@ -38,20 +37,23 @@ fetch("../data/numbers.json")
   });
 
 window.onload = function () {
-  const tabs = document.getElementsByClassName("tab");
-  const tabel = document.getElementsByClassName("tabel");
+  const tabs = document.querySelectorAll(".tab");
+  const table = document.querySelectorAll(".table");
+  tabs[0].classList.add("active");
+  table[0].classList.add("active");
 
-  [...tabs].forEach((tab) => tab.addEventListener("click", tabClick));
+  tabs.forEach(function (tabClicked) {
+    tabClicked.addEventListener("click", function (event) {
+      let id = event.target.dataset.id,
+        content = document.querySelector('.table[data-id="' + id + '"]'),
+        activeTab = document.querySelector(".tab.active"),
+        activeTable = document.querySelector(".table.active");
 
-  function tabClick(event) {
-    const tabId = event.target.dataset.id;
+      activeTab.classList.remove("active");
+      tabClicked.classList.add("active");
 
-    [...tabs].forEach((tab, i) => {
-      tab.classList.remove("active");
-      tabel[i].classList.remove("active");
+      activeTable.classList.remove("active");
+      content.classList.add("active");
     });
-
-    tabs[tabId - 1].classList.add("active");
-    sections[tabId - 1].classList.add("active");
-  }
+  });
 };
