@@ -91,3 +91,29 @@ document.querySelector("#search-input").addEventListener("keyup", function () {
     }
   });
 });
+
+// задание 2
+function clock() {
+  let date = new Date(),
+    hours =
+      date.getUTCHours() < 10 ? "0" + date.getUTCHours() : date.getUTCHours(),
+    minutes =
+      date.getUTCMinutes() < 10
+        ? "0" + date.getUTCMinutes()
+        : date.getUTCMinutes(),
+    seconds =
+      date.getUTCSeconds() < 10
+        ? "0" + date.getUTCSeconds()
+        : date.getUTCSeconds();
+  if (hours >= 12 && hours < 18) {
+    // время выводится в консоль по условию задания, можно вывести в блок на страницу и менять содержимое блока - более эстетично
+    console.log(
+      hours + ":" + minutes + ":" + seconds + " Вот время и настало..."
+    );
+  } else {
+    console.log(hours + ":" + minutes + ":" + seconds);
+  }
+}
+
+setInterval(clock, 1000);
+clock();
