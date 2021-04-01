@@ -65,3 +65,10 @@ window.onload = function () {
     });
   });
 };
+
+document.querySelector("#search-input").addEventListener("keyup", function () {
+  let searchText = this.value;
+  let searchTable = document.querySelector(".table.active");
+  console.log(searchText);
+  console.log(searchTable);
+});
