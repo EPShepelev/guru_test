@@ -66,9 +66,15 @@ window.onload = function () {
   });
 };
 
+//создаем обработчик для поиска
 document.querySelector("#search-input").addEventListener("keyup", function () {
   let searchText = this.value;
   let searchTable = document.querySelector(".table.active");
-  console.log(searchText);
-  console.log(searchTable);
+  searchTable.querySelectorAll("tr").forEach((elem) => {
+    if (!elem.outerText.includes(searchText)) {
+      elem.style.display = "none";
+    } else {
+      elem.style.display = "";
+    }
+  });
 });
