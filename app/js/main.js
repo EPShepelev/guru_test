@@ -31,11 +31,24 @@ fetch("../data/numbers.json")
           let numCell = document.createElement("td");
           let dataCell = document.createElement("td");
 
+          //обрабатываем дату
+          let createDate = new Date(elem.number_list[key].cdate);
+          const createMonthCorrectly = (date) => {
+            if (date.getMonth() + 1 < 10) {
+              return `0${date.getMonth() + 1}`;
+            } else {
+              return `${date.getMonth() + 1}`;
+            }
+          };
+          let dateToHtml = `${createDate.getDate()}.${createMonthCorrectly(
+            createDate
+          )}.${createDate.getFullYear()}`;
+
           table.appendChild(row);
           row.appendChild(numCell);
           row.appendChild(dataCell);
           numCell.innerHTML = `${elem.number_list[key].number}`;
-          dataCell.innerHTML = `${elem.number_list[key].cdate}`;
+          dataCell.innerHTML = `${dateToHtml}`;
         }
       }
     });
