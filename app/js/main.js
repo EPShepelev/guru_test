@@ -29,6 +29,7 @@ fetch("../data/numbers.json")
         for (key in elem.number_list) {
           let row = document.createElement("tr");
           let numCell = document.createElement("td");
+          numCell.classList.add("td-number");
           let dataCell = document.createElement("td");
 
           //обрабатываем дату
@@ -83,11 +84,11 @@ window.onload = function () {
 document.querySelector("#search-input").addEventListener("keyup", function () {
   let searchText = this.value;
   let searchTable = document.querySelector(".table.active");
-  searchTable.querySelectorAll("tr").forEach((elem) => {
+  searchTable.querySelectorAll(".td-number").forEach((elem) => {
     if (!elem.outerText.includes(searchText)) {
-      elem.style.display = "none";
+      elem.parentElement.style.display = "none";
     } else {
-      elem.style.display = "";
+      elem.parentElement.style.display = "";
     }
   });
 });
@@ -115,5 +116,5 @@ function clock() {
   }
 }
 
-setInterval(clock, 1000);
-clock();
+// setInterval(clock, 1000);
+// clock();
