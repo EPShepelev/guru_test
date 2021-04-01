@@ -39,7 +39,12 @@ body {
 
 .table {
   display: none;
+  border-collapse: collapse;
 }
 .table.active {
   display: table;
+}
+
+tr {
+  border-bottom: 1px solid #eee;
 }

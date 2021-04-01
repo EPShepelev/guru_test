@@ -1,13 +1,18 @@
+// получаем родительские элементы в которые будем вставлять данные
 const tableTabs = document.querySelector(".table-tabs");
 const tableContent = document.querySelector(".table-content");
 
+// получаем данные из json, создаем таблицы
 fetch("../data/numbers.json")
   .then((res) => res.json())
   .then((data) => {
     data.numbers.forEach((elem, index) => {
+      //таблица создается если поле is_visible = true
       if (elem.is_visible) {
         const headerTab = document.createElement("div");
         const table = document.createElement("table");
+
+        //делаем первую букву в названии месяца заглавной
         const monthName =
           elem.alias.charAt(0).toUpperCase() + elem.alias.slice(1);
 
@@ -36,9 +41,12 @@ fetch("../data/numbers.json")
     });
   });
 
+//когда страница полностью сформирована добавляем обработчик click для табов
 window.onload = function () {
   const tabs = document.querySelectorAll(".tab");
   const table = document.querySelectorAll(".table");
+
+  //задаем по умолчанию класс active первому табу
   tabs[0].classList.add("active");
   table[0].classList.add("active");
 
