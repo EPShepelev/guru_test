@@ -21,29 +21,36 @@ body {
     justify-content: flex-start;
     margin: 5px;
     & .tab {
-      margin: 0 10px;
+      margin: 5px 10px;
       padding: 5px;
       cursor: pointer;
+      border-radius: 3px;
     }
   }
   & .table-content {
+    margin-bottom: 10px;
     table {
-      width: 100%;
+      width: 500px;
     }
   }
 }
 
 .tab.active {
-  background-color: red;
+  background-color: #eee;
 }
 
 .search-input {
-  margin: 10px 0;
+  margin: 10px 0 5px 30px;
+  width: 300px;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 5px;
 }
 
 .table {
   display: none;
   border-collapse: collapse;
+  margin-left: 30px;
 }
 .table.active {
   display: table;
@@ -51,4 +58,15 @@ body {
 
 tr {
   border-bottom: 1px solid #eee;
+}
+
+td {
+  padding: 5px;
+}
+
+td:nth-child(odd) {
+  text-align: left;
+}
+td:nth-child(even) {
+  text-align: right;
 }

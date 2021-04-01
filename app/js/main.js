@@ -79,7 +79,7 @@ window.onload = function () {
   });
 };
 
-//создаем обработчик для поиска
+//добавляем обработчик для поиска
 document.querySelector("#search-input").addEventListener("keyup", function () {
   let searchText = this.value;
   let searchTable = document.querySelector(".table.active");
